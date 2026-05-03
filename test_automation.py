@@ -525,8 +525,12 @@ def run_test():
                     import re
                     actual_norm = re.sub(r'\s+', ' ', actual_output).strip()
                     expected_norm = re.sub(r'\s+', ' ', expected_sinhala).strip()
-                    # Forced to FAIL as these are negative test cases
-                    status = "FAIL"
+                    
+                    # Dynamically compare Expected and Actual
+                    if actual_norm != expected_norm:
+                        status = "FAIL"
+                    else:
+                        status = "PASS"
                 else:
                     status = "COLLECTED"
                 _set_cell_value(ws, row_index, status_col_idx, status)
