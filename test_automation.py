@@ -573,6 +573,9 @@ def run_test():
         print(f"Error saving output file '{args.output}': {e}")
         return
 
+    if processed >= 50:
+        print("Test cases successfully completed")
+        
     print(f"Test completed. Results saved to {args.output}")
 
 if __name__ == "__main__":
